@@ -2,10 +2,7 @@ require 'csv'
 
 class BankStatement
   def print
-    statement_array = load.map do |row_array|
-      row_array.join( " || " )
-    end
-    statement_array.join( "\n" )
+    format_table
   end
 
   private
@@ -22,5 +19,12 @@ class BankStatement
     end
 
     statement_array
+  end
+
+  def format_table
+    statement_array = load.map do |row_array|
+      row_array.join( " || " )
+    end
+    statement_array.join( "\n" )
   end
 end
