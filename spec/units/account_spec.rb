@@ -5,7 +5,14 @@ describe Account do
 
   describe "#balance" do 
     it "returns the balance" do
-      expect(account.check_balance()).to eq(0)
+      expect(account.check_balance).to eq(0)
+    end
+  end
+
+  describe "#deposit" do
+    it "adds £10 to balance" do
+      account.deposit(10)
+      expect(account.check_balance).to eq(10)
     end
   end
 end
