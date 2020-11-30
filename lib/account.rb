@@ -16,24 +16,19 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    save_credit(amount)
+    save_action(amount)
   end
 
   def withdraw(amount)
     @balance -= amount
+    save_action("", amount)
   end
 
   private
 
-  def save_credit(amount)
-    @csv = CSV.open("statement.csv", "w") do |file|
-      file << ["#{date}","#{amount}","","#{check_balance}"]
-    end
-  end
-
-  def save_debit(amount)
-    @csv = CSV.open("statement.csv", "w") do |file|
-      file << ["#{date}","","#{amount}","#{check_balance}"]
+  def save_action(credit = "", debit = "")
+    CSV.open("statement.csv", "w") do |file|
+      file << ["#{date}","#{credit}","#{debit}","#{check_balance}\n"]
     end
   end
 
