@@ -24,8 +24,8 @@ class Account
 
   private
 
-  def new_csv
-    CSV.open("statement.csv", "a+") do |hdr|
+  def new_csv(filename = "statement.csv")
+    CSV.open(filename, "w") do |hdr|
       hdr << ["date","credit","debit","balance"]
     end
   end
