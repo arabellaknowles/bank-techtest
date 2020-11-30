@@ -5,9 +5,7 @@ class Account
 
   def initialize
     @balance = 0
-    @csv = CSV.open("statement.csv", "a+") do |hdr|
-      hdr << ["date","credit","debit","balance"]
-    end
+    @csv = new_csv
   end
 
   def check_balance
@@ -25,6 +23,12 @@ class Account
   end
 
   private
+
+  def new_csv
+    CSV.open("statement.csv", "a+") do |hdr|
+      hdr << ["date","credit","debit","balance"]
+    end
+  end
 
   def save_action(credit = "", debit = "", filename = "statement.csv")
     CSV.open(filename, "a") do |file|
