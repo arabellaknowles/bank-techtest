@@ -14,11 +14,19 @@ class BankStatement
 
     CSV.foreach(filename) do |row|
       date, credit, debit, balance = row
-      row_array = [date, credit, debit, balance]
-      statement_array << row_array
+      create_row_array(date, credit, debit, balance)
+      add_to_statement_array(row_array)
     end
 
     statement_array
+  end
+
+  def create_row_array(date, credit, debit, balance)
+    row_array = [date, credit, debit, balance]
+  end
+
+  def add_to_statement_array(row_array)
+    statement_array << row_array
   end
 
   def format_table
