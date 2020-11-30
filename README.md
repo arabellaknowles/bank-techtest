@@ -35,5 +35,6 @@ date || credit || debit || balance
 - Method that returns today's date
 - Method to add the action, date, credit/debit amount, balance to the file
 - Storing this in a file not a database: CSV (comma separated format)
+- On intialization of a new account, create a new CSV linked to that account with date, credit, debit, balance columns
 
 
