@@ -16,3 +16,10 @@ date || credit || debit || balance
 14/01/2012 || || 500.00 || 2500.00
 13/01/2012 || 2000.00 || || 3000.00
 10/01/2012 || 1000.00 || || 1000.00
+
+### Planning
+- Method to withdraw from balance: @balance -= withdrawal_amount
+- Method to deposit: @balance += deposit_amount
+- Method that returns today's date
+- Method to add the action, date, credit/debit amount, balance to the file
+- Storing this in a file not a database: CSV (comma separated format)
