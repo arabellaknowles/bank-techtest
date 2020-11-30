@@ -2,10 +2,9 @@ require 'account'
 
 describe Account do
   subject(:account) { described_class.new }
+  let(:csv_file) { double("CSV file") }
 
   describe "#initialize" do 
-    let(:csv_file) { double("CSV file") }
-
     it "initializes with a new csv file" do
       CSV.stub(:open).and_return(csv_file)
       expect(account.csv).to eq(csv_file)
