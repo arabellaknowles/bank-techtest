@@ -1,7 +1,10 @@
-class Account
+require 'csv'
 
+class Account
+  attr_reader :csv
   def initialize
     @balance = 0
+    @csv = CSV.open("statement.csv", "a+")
   end
 
   def check_balance
