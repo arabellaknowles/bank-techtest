@@ -16,10 +16,23 @@ class Account
 
   def deposit(amount)
     @balance += amount
+    save_credit(amount)
   end
 
   def withdraw(amount)
     @balance -= amount
+  end
+
+  private
+
+  def save_credit(amount)
+    @csv = CSV.open("statement.csv", "a+") do |file|
+      file << ["#{date}","#{amount}","","#{check_balance}\n"]
+    end
+  end
+
+  def date
+    Time.now.strftime("%m/%d/%Y")
   end
 
 end
