@@ -1,6 +1,15 @@
 require 'csv'
 
 class BankStatement
+  def print
+    statement_array = load.map do |row_array|
+      row_array.join( " || " )
+    end
+    statement_array.join( "\n" )
+  end
+
+  private
+
   def load(filename = "statement.csv")
     require 'csv'
     row_array = []
@@ -13,12 +22,5 @@ class BankStatement
     end
 
     statement_array
-  end
-
-  def print
-    statement_array = load.map do |row_array|
-      row_array.join( " || " )
-    end
-    statement_array.join( "\n" )
   end
 end
