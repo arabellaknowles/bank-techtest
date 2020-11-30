@@ -26,8 +26,8 @@ class Account
 
   private
 
-  def save_action(credit = "", debit = "")
-    CSV.open("statement.csv", "a") do |file|
+  def save_action(credit = "", debit = "", filename = "statement.csv")
+    CSV.open(filename, "a") do |file|
       file << ["#{date}","#{credit}","#{debit}","#{check_balance}"]
     end
   end
