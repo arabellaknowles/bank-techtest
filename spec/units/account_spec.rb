@@ -15,4 +15,12 @@ describe Account do
       expect(account.check_balance).to eq(10)
     end
   end
+
+  describe "#withdraw" do
+    it "removes £10 from the balance" do
+      account.deposit(20)
+      account.withdraw(10)
+      expect(account.check_balance).to eq(10)
+    end
+  end
 end
