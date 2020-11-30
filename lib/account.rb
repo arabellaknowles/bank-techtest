@@ -6,7 +6,7 @@ class Account
   def initialize
     @balance = 0
     @csv = CSV.open("statement.csv", "a+") do |hdr|
-      hdr << ["date","credit","debit","balance\n"]
+      hdr << ["date","credit","debit","balance"]
     end
   end
 
@@ -27,13 +27,12 @@ class Account
   private
 
   def save_action(credit = "", debit = "")
-    CSV.open("statement.csv", "w") do |file|
-      file << ["#{date}","#{credit}","#{debit}","#{check_balance}\n"]
+    CSV.open("statement.csv", "a") do |file|
+      file << ["#{date}","#{credit}","#{debit}","#{check_balance}"]
     end
   end
 
   def date
     Time.now.strftime("%m/%d/%Y")
   end
-
 end
