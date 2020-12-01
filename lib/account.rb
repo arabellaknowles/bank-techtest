@@ -1,11 +1,10 @@
 require 'csv'
 
 class Account
-  attr_reader :csv, :transaction
+  attr_reader :transaction
 
   def initialize
     @balance = 0
-    @csv = new_csv
     @transaction = []
   end
 
@@ -24,12 +23,6 @@ class Account
   end
 
   private
-
-  def new_csv(filename = "statement.csv")
-    CSV.open(filename, "w") do |hdr|
-      hdr << ["date","credit","debit","balance"]
-    end
-  end
 
   def save_action(credit = "", debit = "", filename = "statement.csv")
     @transaction << ["#{date}","#{credit}","#{debit}","#{check_balance}"]
