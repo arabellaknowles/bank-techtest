@@ -2,6 +2,10 @@ require 'account'
 
 describe Account do
   subject(:account) { described_class.new }
+ 
+  before do
+    allow(subject).to receive(:date).and_return('03/12/2020')
+  end
 
   describe '#initialize' do
     it 'initializes with a empty transaction array' do
@@ -23,7 +27,7 @@ describe Account do
 
     it 'adds deposit action to transaction array' do
       account.deposit(10)
-      expect(account.transaction).to eq([['01/12/2020', '10', '', '10']])
+      expect(account.transaction).to eq([['03/12/2020', '10', '', '10']])
     end
   end
 
@@ -37,7 +41,7 @@ describe Account do
     it 'returns updated csv file' do
       account.deposit(20)
       account.withdraw(10)
-      expect(account.transaction).to eq([['01/12/2020', '20', '', '20'], ['01/12/2020', '', '10', '10']])
+      expect(account.transaction).to eq([['03/12/2020', '20', '', '20'], ['03/12/2020', '', '10', '10']])
     end
   end
 end
