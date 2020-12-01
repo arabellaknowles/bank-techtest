@@ -16,7 +16,8 @@ describe Printer do
 
   describe '#print' do
     it 'prints out the bank statement' do
-      expect { printer.print }.to output.to_stdout 
+      expect(STDOUT).to receive(:puts).with("date || credit || debit || balance\n01/12/2020 || 20 ||  || 20\n01/12/2020 ||  || 10 || 10")
+      printer.print
     end
   end
 end
