@@ -1,12 +1,13 @@
 require 'bank_statement'
 
 describe BankStatement do
-  subject(:bank_statement) { described_class.new }
+  let(:account) { double('account') }
+  subject(:bank_statement) { described_class.new(account) }
+  let(:account_transactions) { [["01/12/2020", "20", "", "20"], ["01/12/2020", "", "10", "10"]] }
 
-  describe '#print' do
-    it 'prints loaded csv data in table format' do
-      allow(bank_statement).to receive(:load).and_return([["date", "credit", "debit", "balance"], ["11/30/2020","20","","20"]])
-      expect(bank_statement.print).to eq("date || credit || debit || balance\n11/30/2020 || 20 ||  || 20")
+  describe '#initialize' do
+    it 'initializes with an account' do
+      expect(bank_statement.account).to eq(account)
     end
   end
 end

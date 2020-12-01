@@ -1,6 +1,13 @@
 require 'csv'
 
 class BankStatement
+  attr_reader :account
+
+  def initialize(account)
+    @account = account
+  end
+
+
   def print
     format_table
   end
