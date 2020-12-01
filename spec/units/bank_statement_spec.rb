@@ -10,4 +10,12 @@ describe BankStatement do
       expect(bank_statement.account).to eq(account)
     end
   end
+
+  describe '#format' do
+    it 'returns account transaction data in table format' do
+      allow(account).to receive(:transaction).and_return(account_transactions)
+      expect(bank_statement.format).to eq("date || credit || debit || balance\n01/12/2020 || 20 ||  || 20\n01/12/2020 ||  || 10 || 10")
+    end
+  end
+
 end
