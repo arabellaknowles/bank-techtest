@@ -1,11 +1,12 @@
 require 'csv'
 
 class Account
-  attr_reader :csv
+  attr_reader :csv, :transaction
 
   def initialize
     @balance = 0
     @csv = new_csv
+    @transaction = []
   end
 
   def check_balance

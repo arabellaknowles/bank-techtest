@@ -9,8 +9,8 @@ describe Account do
   end
 
   describe "#initialize" do 
-    it "initializes with a new csv file" do
-      expect(account.csv).to eq(csv_file)
+    it "initializes with a empty transaction array" do
+      expect(account.transaction).to eq([])
     end
   end
 
