@@ -2,11 +2,6 @@ require 'account'
 
 describe Account do
   subject(:account) { described_class.new }
-  let(:csv_file) { double('CSV file') }
-
-  before do
-    CSV.stub(:open).and_return(csv_file)
-  end
 
   describe '#initialize' do
     it 'initializes with a empty transaction array' do
