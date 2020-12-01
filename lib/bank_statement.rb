@@ -7,17 +7,16 @@ class BankStatement
     @account = account
   end
 
-
   def format
-    "date || credit || debit || balance\n" + format_individual_transaction.join( "\n" )
+    headers = "date || credit || debit || balance\n"
+    headers + format_individual_transaction.join("\n")
   end
 
   private
 
   def format_individual_transaction
     @account.transaction.map do |row_array|
-      row_array.join( " || " )
+      row_array.join(" || ")
     end
   end
-
 end
