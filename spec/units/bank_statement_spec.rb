@@ -3,7 +3,7 @@ require 'bank_statement'
 describe BankStatement do
   let(:account) { double('account') }
   subject(:bank_statement) { described_class.new(account) }
-  let(:account_transactions) { [["01/12/2020", "20", "", "20"], ["01/12/2020", "", "10", "10"]] }
+  let(:account_transactions) { [['01/12/2020', '20', '', '20'], ['01/12/2020', '', '10', '10']] }
 
   describe '#initialize' do
     it 'initializes with an account' do
@@ -17,5 +17,4 @@ describe BankStatement do
       expect(bank_statement.format).to eq("date || credit || debit || balance\n01/12/2020 || 20 ||  || 20\n01/12/2020 ||  || 10 || 10")
     end
   end
-
 end

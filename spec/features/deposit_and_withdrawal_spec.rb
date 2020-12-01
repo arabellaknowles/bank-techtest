@@ -1,8 +1,8 @@
 require 'account'
 require 'bank_statement'
 
-describe "Deposits and withdrawals are shown on bank statement" do
-  it "User creates new account, deposits £2000, withdraws £100 and prints statement" do
+describe 'Deposits and withdrawals are shown on bank statement' do
+  it 'User creates new account, deposits £2000, withdraws £100 and prints statement' do
     ellas_account = Account.new
     ellas_account.deposit(2000)
     ellas_account.withdraw(100)
@@ -13,8 +13,8 @@ describe "Deposits and withdrawals are shown on bank statement" do
   end
 end
 
-describe "Multiple accounts created" do
-  it "Users create new accounts, first user deposits and withdraws, second user deposits £3000, withdraws £100 and prints statement" do
+describe 'Multiple accounts created' do
+  it 'Users create new accounts, first user deposits and withdraws, second user deposits £3000, withdraws £100 and prints statement' do
     ellas_account = Account.new
     ellas_account.deposit(2000)
     ellas_account.withdraw(100)
@@ -27,7 +27,7 @@ describe "Multiple accounts created" do
     bellas_printer.print
   end
 
-  it "Users create new accounts, first user deposits and withdraws, second user deposits and withdraws, first users statement is printed" do
+  it 'Users create new accounts, first user deposits and withdraws, second user deposits and withdraws, first users statement is printed' do
     ellas_account = Account.new
     ellas_account.deposit(2000)
     ellas_account.withdraw(100)
