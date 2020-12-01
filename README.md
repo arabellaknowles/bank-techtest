@@ -1,16 +1,16 @@
 # Bank Tech Test
-This is a ruby application for managing bank accounts that can be used in irb. Users can deposit, withdraw and check balance. The user can print out their bank account statement which contains a table of transactions with the date, credit, debit and balance details. This application stores transaction information within memory, no database is used.
+This is a Ruby application for managing bank accounts that can be used in irb. Users can deposit, withdraw and check balance. The user can print out their bank account statement which contains a table of transactions with the date, credit, debit and balance details. This application stores transaction information within memory, no database is used.
 
 ## Example of use:
-A client makes a deposit of 1000 on 10-01-2012
-**And** a deposit of 2000 on 13-01-2012
-**And** a withdrawal of 500 on 14-01-2012
-**When** she prints her bank statement
-**Then** she would see
-date || credit || debit || balance
-14/01/2012 || || 500.00 || 2500.00
-13/01/2012 || 2000.00 || || 3000.00
-10/01/2012 || 1000.00 || || 1000.00
+A client makes a deposit of 1000 on 10-01-2012  
+**And** a deposit of 2000 on 13-01-2012   
+**And** a withdrawal of 500 on 14-01-2012  
+**When** she prints her bank statement  
+**Then** she would see  
+date || credit || debit || balance  
+14/01/2012 || || 500.00 || 2500.00  
+13/01/2012 || 2000.00 || || 3000.00  
+10/01/2012 || 1000.00 || || 1000.00  
 
 ## Set up
 1) Fork and clone this repository
@@ -30,7 +30,7 @@ $ irb
 ```
 > require './lib/account.rb'
 ```
-2) To create a new account:
+2) To create a new account, run:
 ```
 > new_account = Account.new
 ```
@@ -38,15 +38,15 @@ $ irb
 **Making transactions to your new account:**
 - To deposit:
 ```
-new_account.deposit(50)
+> new_account.deposit(50)
 ```
 - To withdraw:
 ```
-new_account.withdraw(10)
+> new_account.withdraw(10)
 ```
 - To check balance:
 ```
-new_account.check_balance
+> new_account.check_balance
 ```
 
 **Printing your bank statement:**
@@ -57,7 +57,7 @@ new_account.check_balance
 ```
 > bank_statement = BankStatement.new(newaccount)
 ```
-2) Then you must create a printer, passing your bank_statement as the argument:
+2) Then you must create a printer, passing your bank statement as the argument:
 ```
 > require './lib/printer.rb'
 ```
@@ -72,14 +72,4 @@ new_account.check_balance
 ## Technologies used
 - Coded in Ruby
 - RSpec for testing
-- Simplecov and Rubocop for code quality checks
-
-### Planning
-- Method to withdraw from balance: @balance -= withdrawal_amount
-- Method to deposit: @balance += deposit_amount
-- Method that returns today's date
-- Method to add the action, date, credit/debit amount, balance to the file
-- Storing this in a file not a database: CSV (comma separated format)
-- On intialization of a new account, create a new CSV linked to that account with date, credit, debit, balance columns
-
-
+- Simplecov and Rubocop for code quality checks (100% coverage)
