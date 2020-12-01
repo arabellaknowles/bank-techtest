@@ -9,10 +9,15 @@ class BankStatement
 
 
   def format
-    statement_array = account.transaction.map do |row_array|
+    "date || credit || debit || balance\n" + format_individual_transaction.join( "\n" )
+  end
+
+  private
+
+  def format_individual_transaction
+    @account.transaction.map do |row_array|
       row_array.join( " || " )
     end
-    "date || credit || debit || balance\n" + statement_array.join( "\n" )
   end
 
 end
