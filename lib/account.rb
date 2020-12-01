@@ -32,12 +32,10 @@ class Account
   end
 
   def save_action(credit = "", debit = "", filename = "statement.csv")
-    CSV.open(filename, "a") do |file|
-      file << ["#{date}","#{credit}","#{debit}","#{check_balance}"]
-    end
+    @transaction << ["#{date}","#{credit}","#{debit}","#{check_balance}"]
   end
 
   def date
-    Time.now.strftime("%m/%d/%Y")
+    Time.now.strftime("%d/%m/%Y")
   end
 end

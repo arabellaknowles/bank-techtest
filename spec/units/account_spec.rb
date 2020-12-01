@@ -26,8 +26,9 @@ describe Account do
       expect(account.check_balance).to eq(10)
     end
 
-    it "returns updated csv file" do
-      expect(account.deposit(10)).to eq(csv_file)
+    it "adds deposit action to transaction array" do
+      account.deposit(10)
+      expect(account.transaction).to eq([["01/12/2020","10","","10"]])
     end
   end
 
@@ -40,7 +41,8 @@ describe Account do
 
     it "returns updated csv file" do
       account.deposit(20)
-      expect(account.withdraw(10)).to eq(csv_file)
+      account.withdraw(10)
+      expect(account.transaction).to eq([["01/12/2020", "20", "", "20"], ["01/12/2020", "", "10", "10"]])
     end
   end
 end
