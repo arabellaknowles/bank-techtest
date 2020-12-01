@@ -19,16 +19,16 @@ class Account
 
   def withdraw(amount)
     @balance -= amount
-    save_action("", amount)
+    save_action('', amount)
   end
 
   private
 
-  def save_action(credit = "", debit = "", filename = "statement.csv")
-    @transaction << ["#{date}","#{credit}","#{debit}","#{check_balance}"]
+  def save_action(credit = '', debit = '')
+    @transaction << [date.to_s, credit.to_s, debit.to_s, check_balance.to_s]
   end
 
   def date
-    Time.now.strftime("%d/%m/%Y")
+    Time.now.strftime('%d/%m/%Y')
   end
 end
