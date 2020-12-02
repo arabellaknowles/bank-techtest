@@ -20,27 +20,16 @@ describe Account do
     end
 
     it 'calls the add_to_transactions_array method' do
-      expect(account).to receive(:add_to_transactions_array).with(10)
+      expect(account).to receive(:add_to_transactions_array).with(10).and_return([['03/12/2020', '10.00', '', '10.00']])
       account.deposit(10)
-    end
-
-    it 'adds deposit action to transaction array' do
-      account.deposit(10)
-      expect(account.transactions).to eq([['03/12/2020', '10.00', '', '10.00']])
     end
   end
 
   describe '#withdraw' do
-    it 'removes £10 from the balance' do
-      account.deposit(20)
+    it 'calls the add_to_transactions_array method' do
+      account.deposit(50)
+      expect(account).to receive(:add_to_transactions_array).with('', 10).and_return([['03/12/2020', '10.00', '', '40.00']])
       account.withdraw(10)
-      expect(account.check_balance).to eq(10)
-    end
-
-    it 'returns updated csv file' do
-      account.deposit(20)
-      account.withdraw(10)
-      expect(account.transactions).to eq([['03/12/2020', '20.00', '', '20.00'], ['03/12/2020', '', '10.00', '10.00']])
     end
   end
 end
