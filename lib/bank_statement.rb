@@ -9,7 +9,7 @@ class BankStatement
 
   def format
     headers = "date || credit || debit || balance\n"
-    headers + format_individual_transaction.join("\n")
+    headers + format_individual_transaction.reverse.join("\n")
   end
 
   private
