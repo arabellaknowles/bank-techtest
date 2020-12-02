@@ -25,7 +25,15 @@ class Account
   private
 
   def add_to_transactions_array(credit = '', debit = '')
-    @transactions << [date.to_s, credit.to_s, debit.to_s, check_balance.to_s]
+    @transactions << [date.to_s, format_transaction_amount(credit), format_transaction_amount(debit), format_transaction_amount(check_balance)]
+  end
+
+  def format_transaction_amount(action)
+    action == '' ? '' : add_two_decimals(action)
+  end
+
+  def add_two_decimals(string_number)
+    '%.2f' % string_number.to_f
   end
 
   def date

@@ -21,7 +21,7 @@ describe Account do
 
     it 'adds deposit action to transaction array' do
       account.deposit(10)
-      expect(account.transactions).to eq([['03/12/2020', '10', '', '10']])
+      expect(account.transactions).to eq([['03/12/2020', '10.00', '', '10.00']])
     end
   end
 
@@ -35,7 +35,7 @@ describe Account do
     it 'returns updated csv file' do
       account.deposit(20)
       account.withdraw(10)
-      expect(account.transactions).to eq([['03/12/2020', '20', '', '20'], ['03/12/2020', '', '10', '10']])
+      expect(account.transactions).to eq([['03/12/2020', '20.00', '', '20.00'], ['03/12/2020', '', '10.00', '10.00']])
     end
   end
 end
