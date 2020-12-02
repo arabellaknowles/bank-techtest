@@ -7,12 +7,6 @@ describe Account do
     allow(subject).to receive(:date).and_return('03/12/2020')
   end
 
-  describe '#initialize' do
-    it 'initializes with a empty transaction array' do
-      expect(account.transaction).to eq([])
-    end
-  end
-
   describe '#balance' do
     it 'returns the balance' do
       expect(account.check_balance).to eq(0)

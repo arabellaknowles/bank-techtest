@@ -5,12 +5,6 @@ describe BankStatement do
   subject(:bank_statement) { described_class.new(account) }
   let(:account_transactions) { [['03/12/2020', '20', '', '20'], ['03/12/2020', '', '10', '10']] }
 
-  describe '#initialize' do
-    it 'initializes with an account' do
-      expect(bank_statement.account).to eq(account)
-    end
-  end
-
   describe '#format' do
     it 'returns account transaction data in table format' do
       allow(account).to receive(:transaction).and_return(account_transactions)
