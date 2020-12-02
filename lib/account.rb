@@ -5,7 +5,7 @@ class Account
 
   def initialize
     @balance = 0
-    @transaction = []
+    @transactions = []
   end
 
   def check_balance

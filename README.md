@@ -55,7 +55,7 @@ $ irb
 > require './lib/bank_statement.rb'
 ```
 ```
-> bank_statement = BankStatement.new(newaccount)
+> bank_statement = BankStatement.new(new_account)
 ```
 2) Then you must create a printer, passing your bank statement as the argument:
 ```
