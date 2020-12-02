@@ -19,6 +19,11 @@ describe Account do
       expect(account.check_balance).to eq(10)
     end
 
+    it 'calls the add_to_transactions_array method' do
+      expect(account).to receive(:add_to_transactions_array).with(10)
+      account.deposit(10)
+    end
+
     it 'adds deposit action to transaction array' do
       account.deposit(10)
       expect(account.transactions).to eq([['03/12/2020', '10.00', '', '10.00']])
