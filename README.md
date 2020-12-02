@@ -78,4 +78,4 @@ $ rspec
 ## Technologies used
 - Coded in Ruby
 - RSpec for testing
-- Simplecov and Rubocop for code quality checks (100% coverage)
+- Simplecov and Rubocop for code quality checks (99% coverage)
