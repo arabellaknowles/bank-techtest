@@ -10,7 +10,7 @@ class Account
 
   def check_balance
     @balance
-  end
+  end 
 
   def deposit(amount)
     @balance += amount
@@ -25,11 +25,11 @@ class Account
   private
 
   def add_to_transactions_array(credit = '', debit = '')
-    @transactions << [date.to_s, format_transaction_amount(credit), format_transaction_amount(debit), format_transaction_amount(check_balance)]
+    @transactions << [date.to_s, format_with_decimals(credit), format_with_decimals(debit), format_with_decimals(check_balance)]
   end
 
-  def format_transaction_amount(action)
-    action == '' ? '' : add_two_decimals(action)
+  def format_with_decimals(number)
+    number == '' ? '' : add_two_decimals(number)
   end
 
   def add_two_decimals(string_number)
