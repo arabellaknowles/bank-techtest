@@ -13,7 +13,7 @@ describe 'Features' do
       ellas_account.withdraw(100)
       ellas_statement = BankStatement.new(ellas_account)
       ellas_printer = Printer.new(ellas_statement)
-      expect(STDOUT).to receive(:puts).with("date || credit || debit || balance\n03/12/2020 ||  || 100 || 1900\n03/12/2020 || 2000 ||  || 2000")
+      expect(STDOUT).to receive(:puts).with("date || credit || debit || balance\n03/12/2020 ||  || 100.00 || 1900.00\n03/12/2020 || 2000.00 ||  || 2000.00")
       ellas_printer.print
     end
   end
@@ -28,7 +28,7 @@ describe 'Features' do
       bellas_account.withdraw(100)
       bellas_statement = BankStatement.new(bellas_account)
       bellas_printer = Printer.new(bellas_statement)
-      expect(STDOUT).to receive(:puts).with("date || credit || debit || balance\n03/12/2020 ||  || 100 || 2900\n03/12/2020 || 3000 ||  || 3000")
+      expect(STDOUT).to receive(:puts).with("date || credit || debit || balance\n03/12/2020 ||  || 100.00 || 2900.00\n03/12/2020 || 3000.00 ||  || 3000.00")
       bellas_printer.print
     end
 
@@ -42,7 +42,7 @@ describe 'Features' do
       bellas_statement = BankStatement.new(bellas_account)
       ellas_statement = BankStatement.new(ellas_account)
       ellas_printer = Printer.new(ellas_statement)
-      expect(STDOUT).to receive(:puts).with("date || credit || debit || balance\n03/12/2020 ||  || 100 || 1900\n03/12/2020 || 2000 ||  || 2000")
+      expect(STDOUT).to receive(:puts).with("date || credit || debit || balance\n03/12/2020 ||  || 100.00 || 1900.00\n03/12/2020 || 2000.00 ||  || 2000.00")
       ellas_printer.print
     end
   end
