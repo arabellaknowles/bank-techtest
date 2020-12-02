@@ -1,7 +1,7 @@
 require 'csv'
 
 class Account
-  attr_reader :transaction
+  attr_reader :transactions
 
   def initialize
     @balance = 0
@@ -14,18 +14,18 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    save_action(amount)
+    add_to_transactions_array(amount)
   end
 
   def withdraw(amount)
     @balance -= amount
-    save_action('', amount)
+    add_to_transactions_array('', amount)
   end
 
   private
 
-  def save_action(credit = '', debit = '')
-    @transaction << [date.to_s, credit.to_s, debit.to_s, check_balance.to_s]
+  def add_to_transactions_array(credit = '', debit = '')
+    @transactions << [date.to_s, credit.to_s, debit.to_s, check_balance.to_s]
   end
 
   def date

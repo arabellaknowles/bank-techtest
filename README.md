@@ -69,6 +69,12 @@ $ irb
 > printer.print
 ```
 
+## Testing
+- To run rspec tests, in your terminal, run:
+```
+$ rspec
+```
+
 ## Technologies used
 - Coded in Ruby
 - RSpec for testing

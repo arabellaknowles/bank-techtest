@@ -15,7 +15,7 @@ class BankStatement
   private
 
   def format_individual_transaction
-    @account.transaction.map do |row_array|
+    @account.transactions.map do |row_array|
       row_array.join(' || ')
     end
   end
