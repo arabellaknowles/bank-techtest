@@ -14,22 +14,15 @@ describe Account do
   end
 
   describe '#deposit' do
-    it 'adds £10 to balance' do
-      account.deposit(10)
-      expect(account.check_balance).to eq(10)
-    end
-
-    it 'calls the add_to_transactions_array method' do
-      expect(account).to receive(:add_to_transactions_array).with(10).and_return([['03/12/2020', '10.00', '', '10.00']])
-      account.deposit(10)
+    it 'returns the transaction array with the added deposit transaction' do
+      expect(account.deposit(10)).to eq([['03/12/2020', '10.00', '', '10.00']])
     end
   end
 
   describe '#withdraw' do
-    it 'calls the add_to_transactions_array method' do
+    it 'returns the transaction array with the added withdraw transaction' do
       account.deposit(50)
-      expect(account).to receive(:add_to_transactions_array).with('', 10).and_return([['03/12/2020', '10.00', '', '40.00']])
-      account.withdraw(10)
+      expect(account.withdraw(10)).to eq([["03/12/2020", "50.00", "", "50.00"], ['03/12/2020', '', '10.00', '40.00']])
     end
   end
 end
